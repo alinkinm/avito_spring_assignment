@@ -80,7 +80,7 @@ func (repository *BannerRepository) GetAllBanners(ctx context.Context, banner *c
 
 	var banners []*core.Banner
 
-	query := createQuery(&banner)
+	query := createQuery(banner)
 
 	rows, err := repository.Db.Query(query)
 	if err != nil {
@@ -105,7 +105,7 @@ func (repository *BannerRepository) GetAllBanners(ctx context.Context, banner *c
 	return banners, nil
 }
 
-func createQuery(banner core.BannerRequest2) string {
+func createQuery(banner *core.BannerRequest2) string {
 
 	query := ""
 
